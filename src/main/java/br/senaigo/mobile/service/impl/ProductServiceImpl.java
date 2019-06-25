@@ -7,11 +7,13 @@ import javax.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.senaigo.mobile.entities.Product;
 import br.senaigo.mobile.repositories.ProductRepository;
 import br.senaigo.mobile.service.ProductService;
 
+@Service
 public class ProductServiceImpl implements ProductService {
 
 	/**

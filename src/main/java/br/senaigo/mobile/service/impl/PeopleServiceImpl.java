@@ -7,11 +7,13 @@ import javax.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.senaigo.mobile.entities.People;
 import br.senaigo.mobile.repositories.PeopleRepository;
 import br.senaigo.mobile.service.PeopleService;
 
+@Service
 public class PeopleServiceImpl implements PeopleService {
 
 	/**
