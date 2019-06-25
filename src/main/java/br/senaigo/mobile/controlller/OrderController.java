@@ -27,11 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.senaigo.mobile.entities.Order;
 import br.senaigo.mobile.interfaces.GenericOperationsController;
 import br.senaigo.mobile.service.OrderService;
-/**
- * 
- * @author bruno
- *
- */
+
 @RestController
 @RequestMapping("/orders")
 public class OrderController implements GenericOperationsController<Order> {
@@ -59,7 +55,7 @@ public class OrderController implements GenericOperationsController<Order> {
 			Resource<Order> result = new Resource<Order>(order,link);
 			return result;
 		} catch (Exception e) {
-			logger.error(String.format("Erro ao executar o método POST.\nMensagem: %s",e.getMessage()));
+			logger.error(String.format("Erro ao executar POST.\nMensagem: %s",e.getMessage()));
 		}
 		return null;
 	}
@@ -72,7 +68,7 @@ public class OrderController implements GenericOperationsController<Order> {
 			orderService.put(order);
 			logger.info(String.format("Registro atualizado: %s",order.toString()));
 		} catch (Exception e) {
-			logger.error(String.format("Erro ao executar o método PUT.\nMensagem: %s",e.getMessage()));
+			logger.error(String.format("Erro ao executar PUT.\nMensagem: %s",e.getMessage()));
 		}
 	}
 
@@ -84,7 +80,7 @@ public class OrderController implements GenericOperationsController<Order> {
 			orderService.delete(orders);
 			logger.info(String.format("Registro(s) deletado(s): %s",orders.toString()));
 		} catch (Exception e) {
-			logger.error(String.format("Erro ao executar o método PUT.\nMensagem: %s",e.getMessage()));
+			logger.error(String.format("Erro ao executar PUT.\nMensagem: %s",e.getMessage()));
 		}
 
 	}
@@ -116,7 +112,7 @@ public class OrderController implements GenericOperationsController<Order> {
 			 Resources<Order> result = new Resources<Order>(orders, link);
 			 return result;
 		} catch (Exception e) {
-			logger.error(String.format("Erro ao executar o método GET.\nMensagem: %s",e.getMessage()));
+			logger.error(String.format("Erro ao executar GET.\nMensagem: %s",e.getMessage()));
 		}
 		return null;
 	}
@@ -133,7 +129,7 @@ public class OrderController implements GenericOperationsController<Order> {
 			Order order = orderService.get(Order.builder().idOrder(id).build());
 			logger.info(String.format("Registro recuperado: %s",order.toString()));
 		} catch (Exception e) {
-			logger.error(String.format("Erro ao executar o método GET.\nMensagem: %s",e.getMessage()));
+			logger.error(String.format("Erro ao executar GET.\nMensagem: %s",e.getMessage()));
 		}
 		return null;
 	}
@@ -146,7 +142,7 @@ public class OrderController implements GenericOperationsController<Order> {
 			orderService.patch(order);
 			logger.info(String.format("Registro atualizado: %s",order.toString()));
 		} catch (Exception e) {
-			logger.error(String.format("Erro ao executar o método PATCH.\nMensagem: %s",e.getMessage()));
+			logger.error(String.format("Erro ao executar PATCH.\nMensagem: %s",e.getMessage()));
 		}
 
 	}

@@ -41,7 +41,7 @@ public class OrderServiceImpl implements OrderService {
 		}
 		return null;
 	}
-
+	
 	@Override
 	public Order get(Order order) {
 		try {
@@ -51,7 +51,7 @@ public class OrderServiceImpl implements OrderService {
 		}
 		return null;
 	}
-
+	
 	@Override
 	@Transactional
 	public void put(Order order) {
@@ -72,39 +72,69 @@ public class OrderServiceImpl implements OrderService {
 		}
 		
 	}
-
+	
 	@Override
 	@Transactional
 	public void patch(Order entity) {
-		
+		try {
+			orderRepository.save(entity);
+			logger.info(String.format("Registro atualizado: %s", entity.toString()));
+		} catch (Exception e) {
+			logger.error(String.format("Erro ao executar o metodo PATCH.\nMensagem: %s", e.getMessage()));
+		}
 	}
-
+	
 	@Override
 	@Transactional
 	public List<Order> post(List<Order> entities) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			entities.forEach(entity -> {
+				orderRepository.save(entity);
+				logger.info(String.format("Registro atualizado: %s", entity.toString()));
+			});
+			return entities;
+		} catch (Exception e) {
+			logger.error(String.format("Erro ao executar o metodo POST.\nMensagem: %s", e.getMessage()));
+		}
+		return entities;
 	}
-
+	
 	@Override
 	@Transactional
 	public void put(List<Order> entities) {
-		// TODO Auto-generated method stub
-		
+		try {
+			entities.forEach(entity -> {
+				orderRepository.save(entity);
+				logger.info(String.format("Registro atualizado: %s", entity.toString()));
+			});
+		} catch (Exception e) {
+			logger.error(String.format("Erro ao executar o metodo PUT.\nMensagem: %s",e.getMessage()));
+		}
 	}
-
+	
 	@Override
 	@Transactional
 	public void delete(List<Order> entities) {
-		// TODO Auto-generated method stub
-		
+		try {
+			entities.forEach(entity -> {
+				orderRepository.delete(entity);
+			});
+		} catch (Exception e) {
+			logger.error(String.format("Erro ao executar o metodo DELETE.\nMensagem: %s",e.getMessage()));
+		}
 	}
-
+	
 	@Override
 	@Transactional
 	public void patch(List<Order> entities) {
-		// TODO Auto-generated method stub
-		
+		try {
+			entities.forEach(entity -> {
+				orderRepository.save(entity);
+				logger.info(String.format("Registro atualizado: %s", entity.toString()));
+			});
+		} catch (Exception e) {
+			logger.error(String.format("Erro ao executar o metodo PATCH.\nMensagem: %s",e.getMessage()));
+		}
 	}
 
 	@Override
