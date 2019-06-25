@@ -15,6 +15,7 @@ public interface GenericOperations<E> {
 	void delete(List<E> entities);
 	void patch(List<E> entities);
 	List<E> get();
+	//E get(Integer id);
 	
 	
 

@@ -51,7 +51,7 @@ public class ProductController implements GenericOperationsController<Product>{
 	}
 
 	@Override
-	public Resource<Product> get(Integer id) {
+	public Resource<Product> get(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
